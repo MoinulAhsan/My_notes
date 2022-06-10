@@ -1,0 +1,198 @@
+Reposetory--
+directory-- location- j file ta koi ase. directory= folder
+
+## First I created a empty folder on my desktop named git-test. 
+
+
+$ cd Desktop/  ## to go to desktop
+
+$ cd git-test  ## to go to that folder I created for the froject and I will store file in it.
+	       ## git-test which is a  folder that I wanted to create a blank reposetory
+
+## to initialize a blank git reposetory
+ 
+$ git init  ## it will initialize a reposetory that will allow you to add, commit, push, pull things.
+            ## go to view then click hidden items
+            ##it will show that it is a empty reposetory 
+
+## now we will create some files that we can commit or add to our local reposetory
+
+$ touch tim.py  ## .py is python file/ tim and readme 2 ta file create korlam
+
+$ touch readme.txt
+
+## we have created 2 files but they are not yet part of the reposetory. 
+##because we have to run some command to add them into the reposetory
+
+$ git status  ## to check
+	      ## it will show No commits yet 
+              ## and those 2 files in the directory but we have not added to the current reposetory
+              
+
+$ git add .   ## to add those files into the reposetory
+              ## it will add all the file(documents) in the directory(folder) into the reposetory
+
+$ git status  ## to check
+              ## they are green means they are added to the reposetory
+              ## but not yet commited the
+	      ## right now they are in the staging area becuse I have not commited them yet
+
+
+## to commit this files and make a permanent change in the reposetory
+
+$ git commit -m "first change"
+
+## now if i open the readme file and type hello and save the file.
+## that means I made a change to this directory but I have not made the change to the reposetory
+
+$ git status  ## to check
+	      ## it will show modified file and we have not change the reposetory
+
+
+## to add this specific file into reposetory
+
+$ git add readme.txt
+
+$ git commit -m "chnage readme"  ## to commit in the actual reposetory
+
+$ git status  ## to check
+
+## to remove file from reposetory
+
+$ git rm --cached tim.py  ## tim.py is the file we want to remove
+                          ## we have deleted tim.py
+
+$ git status  ## to check
+              ## it will show it is not commited in the reposetory
+              ## we have deleted the file. Now that we deleted it we have to commit that delete just like we commit an add
+
+
+## to commit the delete
+
+$ git commit -m "deleted tim.py"
+
+
+$ git status  ## to check
+              ## it will show that we do not have tim.py in the reposetory
+
+
+## to make branch ###
+
+## if you are working on a main code base and many people are working on it 
+## you might not want each person to modify the main code base each time they make a commit to it
+## so we work on the branch of the main code base
+## then we can modify the branch and when the branch is complete and finished then we can marge that branch to the main code base and add it in there
+
+
+## to create a branch
+
+$ git branch login  ## login is the branch name that we want to create
+                    ## but it will still going to show that we are still in the main branch
+
+
+## to change on to the login branch
+
+$ git checkout login  ## login is the branch that we want to go to
+
+$ git status  ## to check
+
+## now open the readme file and add Tim beside Hello . so there will be written Hello Tim. and then save the file.
+## and also edit the tim.py file. open and write import os ans save
+## now we have made 2 changes but we change them in the login branch
+## now if I commit them into login branch that will be different from the main branch
+
+$ git add .   ## to add all of it
+
+$ git commit -m "update" 
+
+## now switch back to the other branch to see the change 
+
+## to go to the main branch
+
+$ git checkout main  ## Now we swith to the master branch
+                     ## notice that on the main branch tim file does not exist because we previously deleted it from main branch
+                     ## And if I open the readme file it will show Hello only because we add Hello tim in lgin branch
+
+
+## to go to the login branch again##
+
+$ git checkout login  ## it will again show tim.py  file and in readme file hello tim.
+
+## to merge ##
+
+## if we want to merge a branch to the master code base
+## we have to go to the master branch and merge the branch
+
+$ git checkout main
+
+$ git merge login  ## now if there is anything different in the login from main branch that will overwrite 
+                   ## we are in main branch but if we can see tim.py file and in readme it will be hello tim insted of hello.
+
+
+## remote reposetory ##
+
+## to update this to cloud so that other people can see it and make changes to the main reposetory
+## to do that we will use GitHub
+## create a reposetory (git-test I created) on github that will be our remote reposetory on the cloud
+  
+1. we have to create empty reposetory
+2. we have to add the files we want
+3. we have to commit them
+4. we have to push them to the branch that we want
+
+$ git remote ## nothing happend because we do not have e remote reposetory yet
+
+## to add the remote reposetory
+
+$ git remote add tutorial https://github.com/MoinulAhsan/test-git.git  ## (tutorial) is the name of the reposetory that i created 
+
+## now we have this reposetory on our local machine
+## and we have an empty reposetory on github
+                         
+$ git remote  ## to check 
+
+
+## to push the code from our local reposetory to the online reposetory
+## you do this once you are certain that the code is working and everything is fine
+
+
+## to push to the main branch
+
+$ git push -u tutorial main  ## main= write the branch name where you want to push the code
+                             ## it will pop up a file to login into github
+
+
+## to push the login branch
+
+$ git push -u tutorial login
+
+
+## if You are working in a group you might want to do this ##
+
+## to set up my global name and email ## 
+
+$ git config --global user.name Moinul  ## this way when you make commit it will show who commited it
+                                        ## now if I commit to the remote reposetory it will show up my name
+
+$ git config --global user.email moinulahsan4@gmail.com
+
+
+
+## to pull reposetory from main code base/ or branch ##
+
+## to clone ###
+## mkdir is the name of the directory (file) where I want to clone it to.
+
+$ mkdir chess  ## chess is the (foulder) name that we created 
+
+$ cd chess
+
+$ git init
+
+$ git pull https://github.com/thomasahle/sunfish.git  ## link from github what I want to pull
+
+
+
+
+
+
